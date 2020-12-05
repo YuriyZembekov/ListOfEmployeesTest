@@ -11,6 +11,7 @@ import com.example.listofemployeestest.javaclasses.entity.Employee;
 
 import java.util.List;
 
+// Вспомогательный класс, необходим для работы элемента RecyclerView
 public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.ViewHolder> {
 
     private LayoutInflater inflater;

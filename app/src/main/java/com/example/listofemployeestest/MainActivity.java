@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.listofemployeestest.adapter.EmployeesAdapter;
 import com.example.listofemployeestest.javaclasses.entity.Employee;
 import com.example.listofemployeestest.javaclasses.logic.BaseLogic;
+import com.example.listofemployeestest.javaclasses.logic.NameComparatorForEmployee;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+// Основной класс-активность, отображает информацию на экране
 public class MainActivity extends Activity {
 
     private List<Employee> emloyees = null;
@@ -28,18 +30,21 @@ public class MainActivity extends Activity {
 
     }
 
+    // метод инициализирует и сортирует список сотрудников
     private void initListOfEmployees(){
         AsyncTaskForNetworkConnection asyncTaskGetListOfEmployees =
                 new AsyncTaskForNetworkConnection();
         asyncTaskGetListOfEmployees.execute();
         try {
             emloyees = asyncTaskGetListOfEmployees.get();
-            //Collections.sort(emloyees, (e1, e2) -> e1.getName().compareTo(e2.getName()));
+            Collections.sort(emloyees, new NameComparatorForEmployee());
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
     }
 
+    // Вспомогательный класс для запуска интернет-соединения и получению
+    // информации
     class AsyncTaskForNetworkConnection extends AsyncTask<Void, Void, List<Employee>> {
         @Override
         protected List<Employee> doInBackground(Void... voids) {

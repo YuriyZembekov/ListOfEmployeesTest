@@ -1,5 +1,5 @@
 package com.example.listofemployeestest.javaclasses.input;
-
+// Временный класс, возвращает данные для парсировки
 public class InputDataHardware implements InputDataInterface {
     @Override
     public String getPageAsString() {
