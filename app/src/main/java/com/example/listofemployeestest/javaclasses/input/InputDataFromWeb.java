@@ -20,7 +20,6 @@ public class InputDataFromWeb implements InputDataInterface {
             StringBuilder stringInputData = new StringBuilder();
             while ((inputDataString = inputStream.readLine()) != null) {
                 stringInputData.append(inputDataString);
-                System.out.println(stringInputData.toString());
             }
             pageAsString = stringInputData.toString();
         } catch (Exception e){

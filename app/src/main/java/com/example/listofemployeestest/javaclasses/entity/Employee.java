@@ -9,10 +9,21 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
+        return  '\n' +"name='" + name + '\'' +
                 ", phone_number='" + phone_number + '\'' +
                 ", skills=" + skills +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPhoneNumber() {
+        return phone_number;
+    }
+
+    public List<String> getSkills() {
+        return skills;
     }
 }

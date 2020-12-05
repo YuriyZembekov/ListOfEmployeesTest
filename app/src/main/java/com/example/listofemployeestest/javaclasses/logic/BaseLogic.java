@@ -13,7 +13,7 @@ public class BaseLogic {
     // приложение будет работать
     // строка 1 - данные жестко прописаны в программе
     // строка 2 - данные читаются с сайта
-    // private  final  InputDataInterface inputData = new InputDataHardware(); //1
+    //private  final  InputDataInterface inputData = new InputDataHardware(); //1
     private final InputDataInterface inputData = new InputDataFromWeb(); //2
     private final Parser parser = new ParserJson();
 
