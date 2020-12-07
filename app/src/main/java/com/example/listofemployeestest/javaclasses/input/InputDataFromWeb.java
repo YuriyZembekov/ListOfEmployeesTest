@@ -5,7 +5,9 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+// Класс читает информацию с сайта
 public class InputDataFromWeb implements InputDataInterface {
+    // Построчно читает данные с сайта возвращает String
     public String getPageAsString() {
         String pageAsString=null;
         URL inputDataURL = null;
@@ -20,7 +22,6 @@ public class InputDataFromWeb implements InputDataInterface {
             StringBuilder stringInputData = new StringBuilder();
             while ((inputDataString = inputStream.readLine()) != null) {
                 stringInputData.append(inputDataString);
-                System.out.println(stringInputData.toString());
             }
             pageAsString = stringInputData.toString();
         } catch (Exception e){

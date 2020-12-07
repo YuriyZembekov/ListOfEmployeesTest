@@ -6,17 +6,15 @@ import  com.example.listofemployeestest.javaclasses.input.*;
 
 import java.util.List;
 
+// В классе содержится основная логика по чтению
+// и распознованию информации
 public class BaseLogic {
-    //Назначение интерфейсам вариатов реализации
-    // при текущем положении вещей падает с NPE
-    // если закомментить строку "2" и раскоментровать строку "1"
-    // приложение будет работать
-    // строка 1 - данные жестко прописаны в программе
-    // строка 2 - данные читаются с сайта
-    // private  final  InputDataInterface inputData = new InputDataHardware(); //1
-    private final InputDataInterface inputData = new InputDataFromWeb(); //2
+    private final InputDataInterface inputData = new InputDataFromWeb();
     private final Parser parser = new ParserJson();
 
+    // Метод получает json в виде строки
+    // парсит данные в иерархию классов
+    // и возвращает из иерархии список сотрудников
     public List<Employee> start() {
         String jsonAsString = inputData.getPageAsString();
         World world = parser.parseStringToWorld(jsonAsString);
